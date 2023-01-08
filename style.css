@@ -1,18 +1,48 @@
 body {
     background-color: cadetblue;
-    overflow: hidden;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 15px;
 }
 
 .weather {
-    width: 400px;
-    margin-bottom: 100px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 150px;
 }
 
+.search {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+label {
+    font-size: 2rem;
+    text-align: center;
+}
+
+input {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+#area {
+    font-size: 7rem;
+}
+
+#temp {
+    font-size: 4rem;
+}
+
+#conditions {
+    font-size: 25px;
+}
+
+#range {
+    font-size: 20px;
+}
