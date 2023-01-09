@@ -2,6 +2,11 @@ body {
     background-color: cadetblue;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
 .weather {
     color: white;
     display: flex;
@@ -14,21 +19,21 @@ body {
 }
 
 .search {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px;
+    text-align: center;
+
 }
 
-label {
+/* label {
     font-size: 2rem;
     text-align: center;
+} */
+
+.text {
+    text-align: center;
 }
 
-input {
-    display: flex;
-    justify-content: center;
-    text-align: center;
+.submit {
+    width: 100px;
 }
 
 #area {
@@ -45,4 +50,8 @@ input {
 
 #range {
     font-size: 20px;
+}
+
+#error {
+    font-size: 2rem;
 }
