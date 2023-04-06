@@ -1,5 +1,4 @@
-let err = 0;
-const getWeather = async function() {
+const getWeather = async function(e) {
     try {
         const api = await fetch('https://api.openweathermap.org/data/2.5/weather?q=Detroit&units=imperial&APPID=c6d16474a22ccd0db575b5b424788ef9', {mode: 'cors'})
         console.log(api);
@@ -15,7 +14,7 @@ const getWeather = async function() {
         conditions.id = 'conditions';
         high.id = 'range';
         const place = JSON.stringify(string.name);
-        const type = JSON.stringify(string.weather[0].description);
+        const type = JSON.stringify(string.weather[0].description).replace(/['"]+/g, '');
         const highStr = JSON.stringify(Math.round(string.main.temp_max)) + '°';
         const lowStr = JSON.stringify(Math.round(string.main.temp_min)) + '°'
         area.textContent = place.replace(/['"]+/g, '');
@@ -26,6 +25,9 @@ const getWeather = async function() {
         weather.appendChild(temp);
         weather.appendChild(conditions);
         weather.appendChild(high);
+        const weatherIcon = string.weather[0].icon;
+        console.log(weatherIcon);
+        showWeatherImg(weatherIcon);
     }
     catch {
         const weather = document.querySelector('.weather');
@@ -39,7 +41,7 @@ getWeather();
 
 const newWeather = function() {
     const connect = document.querySelector('.submit');
-    connect.addEventListener('click', async () => {
+    connect.addEventListener('click', async (e) => {
         try {
             const areaEl = document.getElementById('area');
             const tempEl = document.getElementById('temp');
@@ -52,6 +54,7 @@ const newWeather = function() {
 
             let text = document.querySelector('.text');
             let key = text.value;
+            console.log(key);
             const api = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${key}&units=imperial&APPID=c6d16474a22ccd0db575b5b424788ef9`, {mode: 'cors'})
             console.log(api);
             const string = await api.json();
@@ -66,7 +69,7 @@ const newWeather = function() {
             conditions.id = 'conditions';
             high.id = 'range';
             const place = JSON.stringify(string.name);
-            const type = JSON.stringify(string.weather[0].description);
+            const type = JSON.stringify(string.weather[0].description).replace(/['"]+/g, '');
             const highStr = JSON.stringify(Math.round(string.main.temp_max)) + '°';
             const lowStr = JSON.stringify(Math.round(string.main.temp_min)) + '°'
             area.textContent = place.replace(/['"]+/g, '');
@@ -77,6 +80,8 @@ const newWeather = function() {
             weather.appendChild(temp);
             weather.appendChild(conditions);
             weather.appendChild(high);
+            const weatherIcon = string.weather[0].icon;
+            showWeatherImg(weatherIcon);
         }
         catch {
             getWeather();
@@ -84,3 +89,12 @@ const newWeather = function() {
     })
 }
 newWeather();
+
+const showWeatherImg = (icon) => {
+    icon.replace(/['"]+/g, '');
+    console.log(icon);
+    const imageElement = document.querySelector('.imageHolder');
+    imageElement.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+    console.log(imageElement.src);
+}
+
