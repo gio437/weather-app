@@ -96,7 +96,6 @@ const showWeatherImg = (type) => {
         case 'clear sky':
             console.log('triggered: clear sky');
             imageElement.src = 'giphy.gif';
-            imageElement.alt = 'clear.png';
             break;
         case 'mist':
             imageElement.src = 'mist.gif';
@@ -104,27 +103,33 @@ const showWeatherImg = (type) => {
         case 'few clouds':
             imageElement.src = 'few-clouds.gif';
             break;
+        case 'overcast clouds':
+            imageElement.src = 'scattered.gif';
+            break;
         case 'scattered clouds':
             imageElement.src = 'scattered.gif';
             break;
         case 'broken clouds':
             imageElement.src = 'broken.gif';
-            break
+            break;
         case 'shower rain':
             imageElement.src = 'heavy.gif';
             break;
         case 'rain':
         imageElement.src = 'slow-rain.gif';
-            break
+            break;
         case 'thunderstorm':
             imageElement.src = 'thunderstorm.gif';
-            break
+            break;
         case 'snow':
             imageElement.src = 'snow.gif';
-            break
+            break;
+        case 'light snow':
+            imageElement.src = 'snow.gif';
+            break;
         default:
             console.log('triggered: default');
-            imageElement.src = 'defaultGif.gif'
+            imageElement.src = 'defaultGif.gif';
     }
 }
 
