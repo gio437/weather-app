@@ -25,9 +25,7 @@ const getWeather = async function(e) {
         weather.appendChild(temp);
         weather.appendChild(conditions);
         weather.appendChild(high);
-        const weatherIcon = string.weather[0].icon;
-        console.log(weatherIcon);
-        showWeatherImg(weatherIcon);
+        showWeatherImg(type);
     }
     catch {
         const weather = document.querySelector('.weather');
@@ -80,8 +78,7 @@ const newWeather = function() {
             weather.appendChild(temp);
             weather.appendChild(conditions);
             weather.appendChild(high);
-            const weatherIcon = string.weather[0].icon;
-            showWeatherImg(weatherIcon);
+            showWeatherImg(type);
         }
         catch {
             getWeather();
@@ -90,11 +87,44 @@ const newWeather = function() {
 }
 newWeather();
 
-const showWeatherImg = (icon) => {
-    icon.replace(/['"]+/g, '');
-    console.log(icon);
+const showWeatherImg = (type) => {
+    console.log('Type:', type);
     const imageElement = document.querySelector('.imageHolder');
-    imageElement.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
-    console.log(imageElement.src);
+    const trimmedType = type.trim();
+    console.log(trimmedType);
+    switch (trimmedType) {
+        case 'clear sky':
+            console.log('triggered: clear sky');
+            imageElement.src = 'giphy.gif';
+            imageElement.alt = 'clear.png';
+            break;
+        case 'mist':
+            imageElement.src = 'mist.gif';
+            break;
+        case 'few clouds':
+            imageElement.src = 'few-clouds.gif';
+            break;
+        case 'scattered clouds':
+            imageElement.src = 'scattered.gif';
+            break;
+        case 'broken clouds':
+            imageElement.src = 'broken.gif';
+            break
+        case 'shower rain':
+            imageElement.src = 'heavy.gif';
+            break;
+        case 'rain':
+        imageElement.src = 'slow-rain.gif';
+            break
+        case 'thunderstorm':
+            imageElement.src = 'thunderstorm.gif';
+            break
+        case 'snow':
+            imageElement.src = 'snow.gif';
+            break
+        default:
+            console.log('triggered: default');
+            imageElement.src = 'defaultGif.gif'
+    }
 }
 
