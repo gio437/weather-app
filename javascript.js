@@ -37,10 +37,12 @@ const getWeather = async function(e) {
 }
 getWeather();
 
+let activeErr = 0;
 const newWeather = function() {
-    const connect = document.querySelector('.submit');
-    connect.addEventListener('click', async (e) => {
+    const form = document.querySelector('.submit');
+    form.addEventListener('click', async (e) => {
         try {
+            e.preventDefault();
             const areaEl = document.getElementById('area');
             const tempEl = document.getElementById('temp');
             const conditionsEl = document.getElementById('conditions');
@@ -79,8 +81,25 @@ const newWeather = function() {
             weather.appendChild(conditions);
             weather.appendChild(high);
             showWeatherImg(type);
+
+            if (activeErr === 1) {
+                console.log('active')
+                const errHead = document.querySelector('.errMsg');
+                errHead.remove();
+                activeErr = 0;
+            }
+            // clears text box after submission
+            text.value = '';
         }
         catch {
+            if (activeErr === 0) {
+                const errMsg = document.createElement('h2');
+                const searchBox = document.querySelector('.errContainer');
+                errMsg.textContent = 'Not Found, Please Retype';
+                errMsg.classList.add('errMsg');
+                searchBox.appendChild(errMsg);
+                activeErr = 1;
+            }
             getWeather();
         }
     })
@@ -116,7 +135,13 @@ const showWeatherImg = (type) => {
             imageElement.src = 'heavy.gif';
             break;
         case 'rain':
-        imageElement.src = 'slow-rain.gif';
+            imageElement.src = 'slow-rain.gif';
+            break;
+        case 'light rain':
+            imageElement.src = 'slow-rain.gif';
+            break;
+        case 'haze':
+            imageElement.src = 'haze.gif';
             break;
         case 'thunderstorm':
             imageElement.src = 'thunderstorm.gif';

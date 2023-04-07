@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weather App</title>
     <link rel = 'stylesheet' href = 'style.css'>
     <script src = 'javascript.js' defer></script>
 </head>
@@ -14,8 +14,11 @@
         <img class="imageHolder"></img>
         <div class='search'>
             <!-- <label>See The Weather</label> -->
-            <input class='text' type = 'text' placeholder = 'Enter city...' required>
-            <button class='submit'>&#128269;</button>
+            <form class="submitAreaForm">
+                <input class='text' type = 'text' placeholder = 'Enter city...' required>
+                <input class='submit' type="submit" value="&#128269;"></input>
+            </form>
+            <div class="errContainer"></div>
         </div>
     </div>
 </body>
