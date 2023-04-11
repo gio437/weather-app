@@ -93,9 +93,11 @@ const newWeather = function() {
         }
         catch {
             if (activeErr === 0) {
+                let text = document.querySelector('.text');
+                let key = text.value;
                 const errMsg = document.createElement('h2');
                 const searchBox = document.querySelector('.errContainer');
-                errMsg.textContent = 'Not Found, Please Retype';
+                errMsg.textContent = `${key} Not Found, Please Retype`;
                 errMsg.classList.add('errMsg');
                 searchBox.appendChild(errMsg);
                 activeErr = 1;
