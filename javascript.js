@@ -116,47 +116,47 @@ const showWeatherImg = (type) => {
     switch (trimmedType) {
         case 'clear sky':
             console.log('triggered: clear sky');
-            imageElement.src = 'giphy.gif';
+            imageElement.src = 'gifs/giphy.gif';
             break;
         case 'mist':
-            imageElement.src = 'mist.gif';
+            imageElement.src = 'gifs/mist.gif';
             break;
         case 'few clouds':
-            imageElement.src = 'few-clouds.gif';
+            imageElement.src = 'gifs/few-clouds.gif';
             break;
         case 'overcast clouds':
-            imageElement.src = 'scattered.gif';
+            imageElement.src = 'gifs/scattered.gif';
             break;
         case 'scattered clouds':
-            imageElement.src = 'scattered.gif';
+            imageElement.src = 'gifs/scattered.gif';
             break;
         case 'broken clouds':
-            imageElement.src = 'broken.gif';
+            imageElement.src = 'gifs/broken.gif';
             break;
         case 'shower rain':
-            imageElement.src = 'heavy.gif';
+            imageElement.src = 'gifs/heavy.gif';
             break;
         case 'rain':
-            imageElement.src = 'slow-rain.gif';
+            imageElement.src = 'gifs/slow-rain.gif';
             break;
         case 'light rain':
-            imageElement.src = 'slow-rain.gif';
+            imageElement.src = 'gifs/slow-rain.gif';
             break;
         case 'haze':
-            imageElement.src = 'haze.gif';
+            imageElement.src = 'gifs/haze.gif';
             break;
         case 'thunderstorm':
-            imageElement.src = 'thunderstorm.gif';
+            imageElement.src = 'gifs/thunderstorm.gif';
             break;
         case 'snow':
-            imageElement.src = 'snow.gif';
+            imageElement.src = 'gifs/snow.gif';
             break;
         case 'light snow':
-            imageElement.src = 'snow.gif';
+            imageElement.src = 'gifs/snow.gif';
             break;
         default:
             console.log('triggered: default');
-            imageElement.src = 'defaultGif.gif';
+            imageElement.src = 'gifs/defaultGif.gif';
     }
 }
 
